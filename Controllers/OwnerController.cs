@@ -1,25 +1,25 @@
 ﻿using EventHorizon_API.Data;
-using EventHorizon_API.Models;
+using EventHorizon_API.Models.Owners;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace EventHorizon_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-
-    public class UserController : ControllerBase
+    public class OwnerController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
 
-        public UserController (AppDbContext appDbContext)
+        public OwnerController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        [HttpPost("AddUser")]
-        public async Task<IActionResult> AddUser(User newUser)
+        [HttpPost("AddOwner")]
+        public async Task<IActionResult> AddOwner(Owner newOwner)
         {
-            _appDbContext.Users.Add(newUser);
+            _appDbContext.Owners.Add(newOwner);
             await _appDbContext.SaveChangesAsync();
 
             return Created();

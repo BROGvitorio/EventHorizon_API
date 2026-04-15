@@ -1,8 +1,18 @@
+/*
+ CURRENT:
+    - Relação unilateral p navegação BA -> Owner && User -> Owner
+
+
+ TODO:
+    - Constraint 1-1 ownerId, owner type
+    - Separar as configurações da tabela em /data/configurations
+    - Setar type com EF, mas manter como protected readonly
+    - Definição das BankAccounts, herança TPH
+    - 
+ */
+
 using EventHorizon_API.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
