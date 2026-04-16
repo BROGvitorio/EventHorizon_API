@@ -1,10 +1,10 @@
 /*
  CURRENT:
-    -
+    - Definição das BankAccounts, herança TPH
 
  TODO:
-    - Definição das BankAccounts, herança TPH
-    - 
+    - Get set compactado em owners
+    - Forma de buscar renda mensal para calcular o limite de empréstimo
  */
 
 using EventHorizon_API.Data;

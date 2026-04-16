@@ -1,0 +1,12 @@
+﻿namespace EventHorizon_API.Models.BankAccounts
+{
+    public class Business : BankAccount
+    {
+        public Business(int ownerId) : base(ownerId)
+        {
+            OwnerId = ownerId;
+            Category = AccountCategory.business;
+            // Cálculo do limite de empréstimo MI * 0.5
+        }
+    }
+}
