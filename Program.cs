@@ -3,8 +3,10 @@
     - Definição das BankAccounts, herança TPH
 
  TODO:
+    - Relação one-many owner->ba 
     - Get set compactado em owners
     - Forma de buscar renda mensal para calcular o limite de empréstimo
+    - HasDefaultValue api fluent em outras tabelas
  */
 
 using EventHorizon_API.Data;
@@ -18,9 +20,9 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("AppDbConnectionString");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-//dotnet ef migrations add
-//dotnet ef migrations remove
-//dotnet ef database update
+// dotnet ef migrations add
+// dotnet ef migrations remove
+// dotnet ef database update
 
 var app = builder.Build();
 

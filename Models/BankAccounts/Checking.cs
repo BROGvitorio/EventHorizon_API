@@ -4,8 +4,7 @@
     {
         public Checking (int ownerId) : base (ownerId)
         {
-            OwnerId = ownerId;
-            WithdrawalTax = 00.5m;
+            WithdrawalTax = 0.05m;
             Category = AccountCategory.checking;
             // Cálculo do limite de empréstimo MI * 0.3
         }

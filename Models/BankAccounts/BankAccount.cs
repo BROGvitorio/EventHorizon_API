@@ -13,11 +13,11 @@ namespace EventHorizon_API.Models.BankAccounts
 
         public AccountCategory Category { get; protected set; }
         public int Id { get; protected set; }
-        public decimal Balance { get; protected set; } = 0;
-        public decimal WithdrawalTax { get; protected set; } = 0;
+        public decimal Balance { get; protected set; }
 
         public decimal LoanLimit { get; protected set; }
         public decimal LoanDebt { get; protected set; }
+        public decimal WithdrawalTax { get; protected set; } = 0;
 
         public int OwnerId { get; protected set; }
         //public int UserId { get; protected set; }

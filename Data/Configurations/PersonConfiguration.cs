@@ -8,7 +8,7 @@ namespace EventHorizon_API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Person> person)
         {
-            person.ToTable("People");
+            person.ToTable("people");
 
             // Configuração TPT: Person herda de Owner
             // A chave primária de Person é a mesma de Owner (relação 1:1)

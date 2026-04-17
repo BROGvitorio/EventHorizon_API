@@ -4,7 +4,6 @@
     {
         public Saving(int ownerId) : base(ownerId)
         {
-            OwnerId = ownerId;
             Category = AccountCategory.saving;
             // Cálculo do limite de empréstimo MI * 0.3
         }

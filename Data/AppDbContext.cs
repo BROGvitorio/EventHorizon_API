@@ -22,6 +22,7 @@ namespace EventHorizon_API.Data
             modelBuilder.ApplyConfiguration(new OwnerConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new BankAccountConfiguration());
         }
     }
 }

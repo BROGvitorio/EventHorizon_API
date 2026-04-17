@@ -8,14 +8,15 @@ namespace EventHorizon_API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Owner> owner)
         {
-            owner.ToTable("Owners");
+            owner.ToTable("owners");
 
             owner.HasKey(o => o.Id);
 
             owner.Property(o => o.Type)
                 .HasField("_type")
                 .HasMaxLength(7)
-                .HasConversion<String>();
+                .HasConversion<String>()
+                .IsRequired();
         }
     }
 }

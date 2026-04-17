@@ -8,7 +8,7 @@ namespace EventHorizon_API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Company> company)
         {
-            company.ToTable("Companies");
+            company.ToTable("companies");
 
             // Configuração TPT: Company herda de Owner
             // A chave primária de Company é a mesma de Owner (relação 1:1)

@@ -8,7 +8,7 @@ namespace EventHorizon_API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User> user)
         {
-            user.ToTable("Users");
+            user.ToTable("users");
 
             user.HasKey(u => u.Id);
 
