@@ -9,16 +9,20 @@ namespace EventHorizon_API.Models.Owners
             person = 0,
             company = 1
         }
-
-        protected OwnerType _type;
         public int Id { get; private set; }
+
+        private OwnerType _type;
         public int UserId { get; private set; }
 
         public ICollection<BankAccount> BankAccounts { get; protected set; }
-
         public OwnerType Type {
             get { return _type; }
-            protected set { _type = value; }
+        }
+
+        public Owner (int userId, OwnerType ownerType)
+        {
+            UserId = userId;
+            _type = ownerType;
         }
     }
 }

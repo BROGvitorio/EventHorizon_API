@@ -1,17 +1,14 @@
-﻿using EventHorizon_API.Models.Owners;
-
-namespace EventHorizon_API.Models.BankAccounts
+﻿namespace EventHorizon_API.Models.BankAccounts
 {
     public abstract class BankAccount
     {
-
         public enum AccountCategory{ 
             business = 0,
             checking = 1,
             saving = 2
         }
 
-        public AccountCategory Category { get; protected set; }
+        protected AccountCategory Category { get; set; }
         public int Id { get; protected set; }
         public decimal Balance { get; protected set; }
 
@@ -22,9 +19,10 @@ namespace EventHorizon_API.Models.BankAccounts
         public int OwnerId { get; protected set; }
         //public int UserId { get; protected set; }
 
-        public BankAccount (int ownerId)
+        public BankAccount (int ownerId, AccountCategory accountCategory)
         {
             OwnerId = ownerId;
+            Category = accountCategory;
         }
     }
 }
