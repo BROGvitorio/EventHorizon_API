@@ -2,6 +2,8 @@
 {
     public class Business : BankAccount
     {
+        //private Business () { }
+
         public Business(int ownerId) : base(ownerId)
         {
             Category = AccountCategory.business;

@@ -1,14 +1,14 @@
 /*
  CURRENT:
-    - Relação one-many owner->ba 
+    - 
 
  TODO:
-    - Get set compactado em owners
     - Forma de buscar renda mensal para calcular o limite de empréstimo
-    - HasDefaultValue api fluent em outras tabelas
+    - Analisar como manter o encapsulamento e deixar as classes acessíveis para o EF em BA
  */
 
 using EventHorizon_API.Data;
+using EventHorizon_API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +22,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connecti
 // dotnet ef migrations add
 // dotnet ef migrations remove
 // dotnet ef database update
+
+builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 
 var app = builder.Build();
 
