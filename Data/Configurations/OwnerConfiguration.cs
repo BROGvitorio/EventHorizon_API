@@ -14,8 +14,8 @@ namespace EventHorizon_API.Data.Configurations
 
             owner.Property(o => o.Type)
                 .HasField("_type")
-                .HasMaxLength(7)
                 .HasConversion<String>()
+                .HasMaxLength(7)
                 .IsRequired();
 
             owner.HasMany(o => o.BankAccounts)

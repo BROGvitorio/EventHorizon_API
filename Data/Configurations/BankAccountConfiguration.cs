@@ -17,9 +17,10 @@ namespace EventHorizon_API.Data.Configurations
             bankAccount.HasKey(ba => ba.Id);
 
             bankAccount.HasDiscriminator(ba => ba.Category);
+                
             bankAccount.Property(ba => ba.Category)
-                .HasMaxLength(8)
                 .HasConversion<String>()
+                .HasMaxLength(8)
                 .IsRequired();
 
             bankAccount.Property(ba => ba.Balance)

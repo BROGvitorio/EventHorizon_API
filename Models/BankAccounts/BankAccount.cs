@@ -8,7 +8,7 @@
             saving = 2
         }
 
-        protected AccountCategory Category { get; set; }
+        public AccountCategory Category { get; protected set; }
         public int Id { get; protected set; }
         public decimal Balance { get; protected set; }
 
@@ -19,10 +19,9 @@
         public int OwnerId { get; protected set; }
         //public int UserId { get; protected set; }
 
-        public BankAccount (int ownerId, AccountCategory accountCategory)
+        public BankAccount (int ownerId)
         {
             OwnerId = ownerId;
-            Category = accountCategory;
         }
     }
 }

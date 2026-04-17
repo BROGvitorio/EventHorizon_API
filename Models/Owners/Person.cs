@@ -7,6 +7,6 @@
         public DateOnly BirthDate { get; private set; }
         public decimal Salary { get; private set; }
 
-        public Person (int userId, OwnerType ownerType) : base (userId, ownerType) {}
+        public Person (int userId) : base (userId, OwnerType.person) {}
     }
 }

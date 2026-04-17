@@ -1,11 +1,10 @@
 /*
  CURRENT:
-    - Relação one-many owner->ba 
+    - 
 
  TODO:
-    - Get set compactado em owners
     - Forma de buscar renda mensal para calcular o limite de empréstimo
-    - HasDefaultValue api fluent em outras tabelas
+    - Analisar como manter o encapsulamento e deixar as classes acessíveis para o EF em BA
  */
 
 using EventHorizon_API.Data;
