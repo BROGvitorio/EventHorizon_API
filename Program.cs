@@ -1,9 +1,8 @@
 /*
  CURRENT:
-    - Definição das BankAccounts, herança TPH
+    - Relação one-many owner->ba 
 
  TODO:
-    - Relação one-many owner->ba 
     - Get set compactado em owners
     - Forma de buscar renda mensal para calcular o limite de empréstimo
     - HasDefaultValue api fluent em outras tabelas

@@ -17,6 +17,11 @@ namespace EventHorizon_API.Data.Configurations
                 .HasMaxLength(7)
                 .HasConversion<String>()
                 .IsRequired();
+
+            owner.HasMany(o => o.BankAccounts)
+                .WithOne()
+                .HasForeignKey(ba => ba.OwnerId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
