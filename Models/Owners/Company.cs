@@ -6,6 +6,6 @@
         public string FantasyName { get; private set; }
         public decimal MonthlyIncome { get; private set; }
 
-        public Company(int userId, OwnerType ownerType) : base(userId, OwnerType.company) { }
+        public Company(int userId) : base(userId, OwnerType.company) { }
     }
 }
