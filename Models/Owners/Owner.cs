@@ -2,7 +2,7 @@
 
 namespace EventHorizon_API.Models.Owners
 {
-    public class Owner
+    public abstract class Owner
     {
         public enum OwnerType
         {
@@ -11,18 +11,17 @@ namespace EventHorizon_API.Models.Owners
         }
         public int Id { get; private set; }
 
-        private OwnerType _type;
+        public OwnerType Type { get; protected set; }
         public int UserId { get; private set; }
 
         public ICollection<BankAccount> BankAccounts { get; protected set; }
-        public OwnerType Type {
-            get { return _type; }
-        }
 
-        public Owner (int userId, OwnerType ownerType)
+        //private Owner () { }
+
+        protected Owner (int userId, OwnerType ownerType)
         {
             UserId = userId;
-            _type = ownerType;
+            Type = ownerType;
         }
     }
 }

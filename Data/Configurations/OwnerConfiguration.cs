@@ -13,7 +13,6 @@ namespace EventHorizon_API.Data.Configurations
             owner.HasKey(o => o.Id);
 
             owner.Property(o => o.Type)
-                .HasField("_type")
                 .HasConversion<String>()
                 .HasMaxLength(7)
                 .IsRequired();

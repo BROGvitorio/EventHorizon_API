@@ -2,6 +2,8 @@
 {
     public class Checking : BankAccount
     {
+        //private Checking () { }
+
         public Checking (int ownerId) : base (ownerId)
         {
             WithdrawalTax = 0.05m;

@@ -19,6 +19,8 @@
         public int OwnerId { get; protected set; }
         //public int UserId { get; protected set; }
 
+        //private BankAccount () { }
+
         public BankAccount (int ownerId)
         {
             OwnerId = ownerId;
