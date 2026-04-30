@@ -9,7 +9,7 @@ namespace EventHorizon_API.Models.Owners
 
         public ICollection<BankAccount> BankAccounts { get; protected set; } = new List<BankAccount>();
 
-        //protected Owner () { }
+        protected Owner () { }
 
         protected Owner (int userId)
         {

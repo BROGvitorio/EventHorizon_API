@@ -6,7 +6,7 @@
         public string FantasyName { get; private set; }
         public decimal MonthlyIncome { get; private set; }
 
-        //private Company () { }
+        private Company () { }
 
         public Company(int userId, string cnpj, string fantasyName, decimal monthlyIncome) : base(userId) {
             Cnpj = cnpj;

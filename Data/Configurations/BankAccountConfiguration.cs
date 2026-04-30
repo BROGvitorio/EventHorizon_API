@@ -31,6 +31,7 @@ namespace EventHorizon_API.Data.Configurations
                 .HasValue<Checking>("checking")
                 .HasValue<Saving>("saving");
             bankAccount.Property(ba => ba.Category)
+                .HasConversion<string>()
                 .HasMaxLength(8)
                 .IsRequired();
 
