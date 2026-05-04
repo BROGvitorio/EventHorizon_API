@@ -20,3 +20,18 @@ async function carregarContas() {
         console.log("Erro ao exibir contas.");
     }
 }
+
+async function cadastrarConta() {
+    const token = document.getElementById('inputToken').value;
+
+    if (!token) {
+        alert("Acesso negado, escreva o token antes");
+        return;
+    }
+
+    const newAccount = {
+        userId: "1",
+        category: "Corrente"
+        Balance: "0"
+    }
+}
