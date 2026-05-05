@@ -1,5 +1,7 @@
 ﻿using EventHorizon_API.Data;
+using EventHorizon_API.DTOs;
 using EventHorizon_API.Models;
+using EventHorizon_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventHorizon_API.Controllers
@@ -9,20 +11,29 @@ namespace EventHorizon_API.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly AppDbContext _appDbContext;
+        private readonly IUserService _service;
 
-        public UserController (AppDbContext appDbContext)
+        public UserController(IUserService service)
         {
-            _appDbContext = appDbContext;
+            _service = service;
         }
 
-        [HttpPost("AddUser")]
-        public async Task<IActionResult> AddUser(User newUser)
-        {
-            _appDbContext.Users.Add(newUser);
-            await _appDbContext.SaveChangesAsync();
+        [HttpGet]
+        public async Task<IActionResult> Get() => Ok(await _service.ListAll());
 
-            return Created();
+        [HttpPost]
+        public async Task<IActionResult> Post(UserDTO userDTO)
+        {
+            try
+            {
+                await _service.Create(userDTO);
+                return Ok("Livro cadastrado com sucesso");
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace EventHorizon_API.Repositories
 
         public async Task Delete(BankAccount account)
         {
-            _context.BankAccounts.ExecuteDelete();
+            _context.BankAccounts.Remove(account);
             await _context.SaveChangesAsync();
         }
     }
