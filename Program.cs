@@ -1,13 +1,14 @@
 /*
     CURRENT:
-        - Estrutura de camadas p herança TPT Owners, Person e Company
+        - relação transactions e bankaccount
 
     TODO:
-        -
+        - 
 
     EXTRA:
         - hash nas senhas
         - uuid ao invés de ids sequenciais
+        - enums no banco
 
  */
 

@@ -7,7 +7,7 @@
         public CheckingAccount (int ownerId) : base (ownerId)
         {
             WithdrawalTax = 0.05m;
-            Category = AccountCategory.checking;
+            Category = AccountCategory.Checking;
             // Cálculo do limite de empréstimo MI * 0.3
         }
     }
