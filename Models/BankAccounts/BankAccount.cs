@@ -3,13 +3,13 @@
     public abstract class BankAccount
     {
         public enum AccountCategory{ 
-            business = 0,
-            checking = 1,
-            saving = 2
+            Business = 0,
+            Checking = 1,
+            Saving = 2
         }
 
-        public AccountCategory Category { get; set; }
         public int Id { get; set; }
+        public AccountCategory Category { get; set; }
         public decimal Balance { get; set; }
 
         public decimal LoanLimit { get; set; }
@@ -17,7 +17,7 @@
         public decimal WithdrawalTax { get; set; } = 0;
 
         public int OwnerId { get; set; }
-        //public int UserId { get; protected set; }
+        public ICollection<BankTransaction> Transactions { get; set; }
 
         protected BankAccount () { }
 

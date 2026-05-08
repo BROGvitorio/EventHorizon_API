@@ -16,6 +16,7 @@ namespace EventHorizon_API.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<BankAccount> BankAccounts { get; set; }
+        public DbSet<BankTransaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,7 @@ namespace EventHorizon_API.Data
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             modelBuilder.ApplyConfiguration(new BankAccountConfiguration());
+            modelBuilder.ApplyConfiguration(new BankTransactionConfiguration());
         }
     }
 }

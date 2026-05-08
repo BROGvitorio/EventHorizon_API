@@ -6,7 +6,7 @@
 
         public BusinessAccount(int ownerId) : base(ownerId)
         {
-            Category = AccountCategory.business;
+            Category = AccountCategory.Business;
             // Cálculo do limite de empréstimo MI * 0.5
         }
     }

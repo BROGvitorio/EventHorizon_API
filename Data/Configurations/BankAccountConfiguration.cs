@@ -32,9 +32,9 @@ namespace EventHorizon_API.Data.Configurations
                 .IsRequired();
 
             bankAccount.HasDiscriminator(ba => ba.Category)
-                .HasValue<BusinessAccount>(BankAccount.AccountCategory.business)
-                .HasValue<CheckingAccount>(BankAccount.AccountCategory.checking)
-                .HasValue<SavingAccount>(BankAccount.AccountCategory.saving);
+                .HasValue<BusinessAccount>(BankAccount.AccountCategory.Business)
+                .HasValue<CheckingAccount>(BankAccount.AccountCategory.Checking)
+                .HasValue<SavingAccount>(BankAccount.AccountCategory.Saving);
 
             bankAccount.Property(ba => ba.Balance)
                 .HasPrecision(15, 2)
@@ -51,6 +51,11 @@ namespace EventHorizon_API.Data.Configurations
                 .IsRequired();
 
             bankAccount.Ignore(ba => ba.WithdrawalTax);
+
+            bankAccount.HasMany(ba => ba.Transactions)
+                .WithOne()
+                .HasForeignKey(t => t.AccountId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
