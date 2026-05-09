@@ -1,6 +1,6 @@
 /*
     CURRENT:
-        - relação transactions e bankaccount
+        - 
 
     TODO:
         - 
@@ -16,6 +16,11 @@ using EventHorizon_API.Data;
 using EventHorizon_API.Repositories;
 using EventHorizon_API.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+//using Microsoft.OpenApi;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
