@@ -1,5 +1,6 @@
 ﻿using EventHorizon_API.DTOs;
 using EventHorizon_API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventHorizon_API.Controllers
@@ -19,6 +20,7 @@ namespace EventHorizon_API.Controllers
         [HttpGet("ListUsers")]
         public async Task<IActionResult> Get() => Ok(await _service.ListAll());
 
+        [Authorize]
         [HttpPost("CreateUser")]
         public async Task<IActionResult> Post(UserDTO userDTO)
         {
