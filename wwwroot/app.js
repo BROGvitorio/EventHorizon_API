@@ -13,10 +13,11 @@ async function ShowUsers() {
                 <tr>
                     <td>${user.id}</td>
                     <td>${user.email}</td>
-                    <td>${user.password}</td>
+                    <td>${user.loginPassword}</td>
                 </tr>
             `
-        })
+        }
+    )
     } catch (erro) {
         alert("Erro ao buscar dados.")
         console.error(erro);
@@ -26,6 +27,8 @@ async function ShowUsers() {
 async function AddUser() {
     userEmail = document.getElementById('userEmail').value;
     userPassword = document.getElementById('userPassword').value;
+
+
 
     token = document.getElementById('jwtToken').value.trim();
     console.log("Header enviado:", `Bearer ${token}`);
