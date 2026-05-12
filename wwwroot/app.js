@@ -28,8 +28,6 @@ async function AddUser() {
     userEmail = document.getElementById('userEmail').value;
     userPassword = document.getElementById('userPassword').value;
 
-
-
     token = document.getElementById('jwtToken').value.trim();
     console.log("Header enviado:", `Bearer ${token}`);
 
