@@ -7,14 +7,50 @@
 </head>
 <body>
     <main>
-        <h2>Login</h2>
+        <div>
+            <h2>Cadastro</h2>
 
-        <input type="text" placeholder="Email">
-        <input type="text" placeholder="Senha">
+            <input placeholder="JWT Token" id="jwtToken"/>
 
-        <button>Visualizar senha</button>
+            <input type="text" placeholder="Email" id="userEmail">
+            <input type="text" placeholder="Senha" id="userPassword">
 
-        <button>Login</button>
+            <button>Visualizar senha</button>
+
+            <button onclick="AddUser()">Cadastrar</button>
+        </div>
+        
+        <div>
+            <h2>Login</h2>
+
+            <input type="text" placeholder="Email" id="userEmail2">
+            <input type="text" placeholder="Senha" id="userPassword2">
+
+            <button>Visualizar senha</button>
+
+            <button>Login</button>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div>
+            <button class="" onclick="ShowUsers()">Atualizar Lista de Users</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
     </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
