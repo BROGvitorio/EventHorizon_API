@@ -7,5 +7,7 @@ namespace EventHorizon_API.Services
     {
         Task<IEnumerable<User>> ListAll();
         Task Create(UserDTO userDTO);
+        Task Delete(String userEmail);
+        Task<UserDTO> GetByEmail(String userEmail);
     }
 }

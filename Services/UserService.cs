@@ -18,8 +18,6 @@ namespace EventHorizon_API.Services
 
         public async Task Create(UserDTO userDTO)
         {
-
-
             var newUser = new User
             {
                 Email = userDTO.Email,
@@ -27,6 +25,30 @@ namespace EventHorizon_API.Services
             };
 
             await _repository.Create(newUser);
+        }
+
+        public async Task Delete(String userEmail) {
+            User user = await _repository.GetByEmail(userEmail);
+
+            if(user != null) await _repository.Delete(user);
+            else throw new Exception("Usuário não encontrado");
+        }
+
+        public async Task<UserDTO> GetByEmail(String userEmail)
+        {
+            User user = await _repository.GetByEmail(userEmail);
+
+            if (user != null)
+            {
+                UserDTO userDTO = new UserDTO
+                {
+                    Email = user.Email,
+                    LoginPassword = user.LoginPassword
+                };
+                return userDTO;
+            }
+                
+            else throw new Exception("Usuário não encontrado");
         }
     }
 }

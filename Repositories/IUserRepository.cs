@@ -1,5 +1,4 @@
 ﻿using EventHorizon_API.Models;
-using EventHorizon_API.Models.BankAccounts;
 
 namespace EventHorizon_API.Repositories
 {
@@ -9,5 +8,6 @@ namespace EventHorizon_API.Repositories
         Task Create(User newUser);
         Task Update(User updatedUser);
         Task Delete(User user);
+        Task<User?> GetByEmail(String userEmail);
     }
 }

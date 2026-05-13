@@ -1,5 +1,6 @@
 ﻿using EventHorizon_API.Data;
 using EventHorizon_API.Models;
+using EventHorizon_API.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventHorizon_API.Repositories
@@ -34,6 +35,11 @@ namespace EventHorizon_API.Repositories
         {
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> GetByEmail(String userEmail)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
         }
     }
 }

@@ -2,6 +2,7 @@
 using EventHorizon_API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace EventHorizon_API.Controllers
 {
@@ -17,8 +18,13 @@ namespace EventHorizon_API.Controllers
             _service = service;
         }
 
-        [HttpGet]
+        [HttpGet("ListAll")]
         public async Task<IActionResult> Get() => Ok(await _service.ListAll());
+
+        [HttpGet("GetByEmail")]
+        public async Task<IActionResult> Get(String userEmail) {
+            return Ok(await _service.GetByEmail(userEmail));
+        }
 
         [Authorize]
         [HttpPost]
@@ -33,6 +39,22 @@ namespace EventHorizon_API.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> Delete(String userEmail)
+        {
+            try
+            {
+                await _service.Delete(userEmail);
+                return Ok("Usuário deletado com sucesso!");
+
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
             }
         }
     }

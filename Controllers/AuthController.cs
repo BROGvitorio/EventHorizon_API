@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EventHorizon_API.DTOs;
+using EventHorizon_API.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using EventHorizon_API.DTOs;
 
 namespace EventHorizon_API.Controllers
 {
@@ -12,23 +13,27 @@ namespace EventHorizon_API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserService _service;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration, IUserService service)
         {
             _configuration = configuration;
+            _service = service;
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] UserDTO login)
+        public async Task<IActionResult> Login([FromBody] UserDTO userLogin)
         {
-            if(login.Email == "admin@email.com" && login.LoginPassword == "1234")
+            var user = await _service.GetByEmail(userLogin.Email);
+
+            if(user != null && user.LoginPassword == userLogin.LoginPassword)
             {
                 var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new[]
                     {
-                        new Claim(ClaimTypes.Name, login.Email),
+                        new Claim(ClaimTypes.Name, userLogin.Email),
                         new Claim(ClaimTypes.Role, "Administrator")
                     }),
                     Expires = DateTime.UtcNow.AddHours(2),
@@ -51,5 +56,7 @@ namespace EventHorizon_API.Controllers
                 error = "Usuário ou senha inválidos"
             });
         }
+
+
     }
 }
