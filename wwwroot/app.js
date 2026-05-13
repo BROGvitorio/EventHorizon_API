@@ -20,10 +20,12 @@ async function Login() {
 
         if (response.ok) {
             localStorage.setItem("token", data.token);
-            alert(data.message);
+            alert(data.Message);
             window.location.href = '/dashboard.html';
         }
-
+        else {
+            alert(data.Message);
+        }
     } catch (error) {
         console.error(error);
     }
@@ -54,7 +56,6 @@ async function ShowUsers() {
 }
 
 async function CreateUser() {
-
     const newUser = {
         Email: document.getElementById('signUpEmail').value,
         LoginPassword: document.getElementById('signUpPassword').value
@@ -69,13 +70,12 @@ async function CreateUser() {
             body: JSON.stringify(newUser)
         });
 
-        if (response.ok) {
-            alert("Usuário cadastrado com sucesso!");
-            //window.location.href = '/index.html';
-        } else {
-            alert("Erro 401: Token inválido");
-        }
+        const data = await response.json();
+
+        alert(data.message);
     } catch (erro) {
         console.error(erro);
     }
+
+    window.location.reload();
 }
