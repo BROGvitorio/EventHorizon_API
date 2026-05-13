@@ -47,3 +47,8 @@ input.border-0:focus {
     box-shadow: none;
     border-bottom: 3px solid var(--bs-dark-bg-subtle) !important;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+}

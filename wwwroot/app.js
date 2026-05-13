@@ -1,4 +1,36 @@
-const apiUrl = 'api/User'
+const apiUrl = 'api/User';
+const authApiUrl = 'api/Auth';
+
+// localstorage.setItem
+
+async function Login() {
+    const userLogin = {
+        Email: document.getElementById('loginEmail').value,
+        LoginPassword: document.getElementById('loginPassword').value
+    }
+
+    try {
+        const response = await fetch(authApiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userLogin)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            alert(data.message);
+            console.log(data.message);
+            window.location.href = '/dashboard.html';
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 async function ShowUsers() {
     try {
@@ -25,10 +57,10 @@ async function ShowUsers() {
 }
 
 async function AddUser() {
-    userEmail = document.getElementById('userEmail').value;
-    userPassword = document.getElementById('userPassword').value;
+    const userEmail = document.getElementById('userEmail').value;
+    const userPassword = document.getElementById('userPassword').value;
 
-    token = document.getElementById('jwtToken').value.trim();
+    const token = document.getElementById('jwtToken').value.trim();
     console.log("Header enviado:", `Bearer ${token}`);
 
     const newUser = {
@@ -55,4 +87,10 @@ async function AddUser() {
     } catch (erro) {
         console.error(erro);
     }
+}
+
+async function DeleteUser() {
+    const userId = document.getElementById('userIdInput').value;
+
+    
 }
