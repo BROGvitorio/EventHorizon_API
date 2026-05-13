@@ -26,7 +26,6 @@ namespace EventHorizon_API.Controllers
             return Ok(await _service.GetByEmail(userEmail));
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(UserDTO userDTO)
         {
