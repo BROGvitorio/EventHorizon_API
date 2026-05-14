@@ -43,17 +43,17 @@ namespace EventHorizon_API.Controllers
 
         [Authorize]
         [HttpDelete]
-        public async Task<IActionResult> Delete(String userEmail)
+        public async Task<IActionResult> Delete([FromBody] String userEmail)
         {
             try
             {
                 await _service.Delete(userEmail);
-                return Ok("Usuário deletado com sucesso!");
+                return Ok(new { message = "Usuário deletado com sucesso!" });
 
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                return NotFound(new { message = e.Message});
             }
         }
     }

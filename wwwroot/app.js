@@ -1,6 +1,31 @@
 const apiUrl = 'api/User';
 const authApiUrl = 'api/Auth';
 
+async function CreateUser() {
+    const newUser = {
+        Email: document.getElementById('signUpEmail').value,
+        LoginPassword: document.getElementById('signUpPassword').value
+    }
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser)
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+    } catch (erro) {
+        console.error(erro);
+    }
+
+    window.location.reload();
+}
+
 async function Login() {
     const userLogin = {
         Email: document.getElementById('loginEmail').value,
@@ -33,7 +58,7 @@ async function Login() {
 
 async function ShowUsers() {
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${apiUrl}/ListAll`);
         const users = await response.json();
 
         const tbody = document.getElementById('tableBody');
@@ -47,35 +72,33 @@ async function ShowUsers() {
                     <td>${user.loginPassword}</td>
                 </tr>
             `
-        }
-    )
+        });
+
     } catch (erro) {
         alert("Erro ao buscar dados.")
         console.error(erro);
     }
 }
 
-async function CreateUser() {
-    const newUser = {
-        Email: document.getElementById('signUpEmail').value,
-        LoginPassword: document.getElementById('signUpPassword').value
-    }
+async function DeleteUser() {
+    const userEmail = document.getElementById('userEmailInput').value;
+    const token = localStorage.getItem('token');
 
     try {
         const response = await fetch(apiUrl, {
-            method: 'POST',
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(newUser)
+            body: JSON.stringify(userEmail)
         });
 
         const data = await response.json();
 
         alert(data.message);
-    } catch (erro) {
+        window.location.reload();
+    } catch(erro) {
         console.error(erro);
     }
-
-    window.location.reload();
 }

@@ -37,12 +37,6 @@
         </section>
 
         <section class="w-25 d-flex flex-column justify-self-center align-self-center">
-            
-            <div class="h-50 d-flex flex-row justify-content-center">
-                <input type="text" placeholder="JWT Token" id="jwtToken"
-                       class="bg-transparent border-0 border-bottom border-dark-subtle mb-3">
-                <button class="h-75">Verificar Token</button>
-            </div>
 
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
@@ -57,8 +51,8 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
                         </div>
                         <div class="modal-body d-flex flex-column align-items-center">
-                            <label>Digite o Id do usuário que deseja apagar:</label>
-                            <input id="userIdInput" type="text" placeholder="Id" class="bg-transparent border-0 border-bottom border-dark-subtle">
+                            <label>Digite o email do usuário que deseja apagar:</label>
+                            <input id="userEmailInput" type="text" placeholder="Email" class="bg-transparent border-0 border-bottom border-dark-subtle">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
