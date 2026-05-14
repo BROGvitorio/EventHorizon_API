@@ -1,10 +1,10 @@
 const apiUrl = 'api/User';
 const authApiUrl = 'api/Auth';
 
-async function CreateUser() {
+async function CreateUser(emailInput, passwordInput) {
     const newUser = {
-        Email: document.getElementById('signUpEmail').value,
-        LoginPassword: document.getElementById('signUpPassword').value
+        Email: document.getElementById(emailInput).value,
+        LoginPassword: document.getElementById(passwordInput).value
     }
 
     try {
