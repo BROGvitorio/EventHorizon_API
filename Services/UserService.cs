@@ -60,6 +60,10 @@ namespace EventHorizon_API.Services
         }
 
         public async Task Delete(String userEmail) {
+            if (userEmail == null || userEmail == "") {
+                throw new Exception("Digite um email.");
+            }
+            
             User user = await _repository.GetByEmail(userEmail);
 
             if(user != null) await _repository.Delete(user);
