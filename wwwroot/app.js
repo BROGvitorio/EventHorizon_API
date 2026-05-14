@@ -20,11 +20,11 @@ async function Login() {
 
         if (response.ok) {
             localStorage.setItem("token", data.token);
-            alert(data.Message);
+            alert(data.message);
             window.location.href = '/dashboard.html';
         }
         else {
-            alert(data.Message);
+            alert(data.message);
         }
     } catch (error) {
         console.error(error);
