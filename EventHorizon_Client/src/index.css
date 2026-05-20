@@ -1,111 +1,94 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --primary: #2c4d4f;          /* Teal Profundo: Estabilidade e sofisticação */
+  --primary-hover: #375f62;    /* Variação para estados de hover */
+  
+  --secondary: #d9b48f;        /* Bege/Dourado Metalizado: Toque de luxo/VIP */
+  
+  --accent: #e65f33;           /* Terracota/Disco de Acreção: Botões de conversão e CTAs */
+  --accent-hover: #ff7346;     /* Variação ativa/hover do ponto de foco */
+
+
+  --neutral-900: #06080c;      /* Background Principal (O "Vazio" do Horizonte de Eventos) */
+  --neutral-800: #141b27;      /* Background dos Cards e Modais (Contraste otimizado) */
+  --neutral-700: #243146;      /* Bordas, Divisores de tabelas e inputs desativados */
+  --neutral-600: #334155;      /* Elementos secundários de UI (ex: ícones decorativos) */
+
+
+  --text-primary: #f8fafc;     /* Títulos, saldos e textos de leitura crítica (Contraste Máximo) */
+  --text-secondary: #94a3b8;   /* Subtítulos, labels de formulários e descrições menores */
+  --text-muted: #475569;       /* Placeholders e textos desativados (disabled) */
+
+
+  --success: #10b981;          /* Verde Esmeralda: Pix enviado, depósito concluído, lucro */
+  --success-surface: #042f22;  /* Fundo sutil para alertas de sucesso */
+  
+  --error: #ef4444;            /* Vermelho Cirúrgico: Cartão recusado, saldo insuficiente */
+  --error-surface: #450a0a;    /* Fundo sutil para alertas de erro */
+  
+  --warning: #f59e0b;          /* Âmbar: Fatura vencendo hoje, limite quase atingido */
+  --warning-surface: #451a03;  /* Fundo sutil para alertas de aviso */
+  
+  --info: #3b82f6;             /* Azul Cyber: Notificações gerais, atualizações do app */
+  --info-surface: #1e3a8a;     /* Fundo sutil para informativos */
+
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+/*RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
-
 body {
-  margin: 0;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+#main-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--neutral-900);
 }

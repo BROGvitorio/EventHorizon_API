@@ -1,61 +1,64 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-type User = {
-    email: string,
-    loginPassword: string
-}
+// import { useEffect, useState } from 'react'
+// import './App.css'
 
-const apiUrl = "/EventHorizon_API/api/User";
+// type User = {
+//     email: string,
+//     loginPassword: string
+// }
 
-function App() {
-    const [users, setUsers] = useState<User[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+// const apiUrl = "/EventHorizon_API/api/User";
 
-    useEffect(() => {
-        fetch(`${apiUrl}/ListAll`)
-            .then(async response => {
-                if (!response.ok) {
-                    throw new Error(`Erro na requisição: ${response.status}`);
-                }
-                const data = (await response.json()) as User[];
-                setUsers(data);
-            })
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false));
-    }, []);
+// function App() {
+//     const [users, setUsers] = useState<User[]>([]);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState<string | null>(null);
 
-    if (loading) {
-        return <p>Loading user data...</p>
-    }
+//     useEffect(() => {
+//         fetch(`${apiUrl}/ListAll`)
+//             .then(async response => {
+//                 if (!response.ok) {
+//                     throw new Error(`Erro na requisição: ${response.status}`);
+//                 }
+//                 const data = (await response.json()) as User[];
+//                 setUsers(data);
+//             })
+//             .catch(err => setError(err.message))
+//             .finally(() => setLoading(false));
+//     }, []);
 
-    if (error) {
-        return <p>Error: {error}</p>
-    }
+//     if (loading) {
+//         return <p>Loading user data...</p>
+//     }
 
-    return (
-        <main style={{ padding: 24 }}>
-            <h1>Lista de Usuários</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Senha</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map(user => (
-                        <tr key={user.email}>
-                            <td>{user.email}</td>
-                            <td>{user.loginPassword}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </main>
-    );
-}
+//     if (error) {
+//         return <p>Error: {error}</p>
+//     }
 
-export default App
+//     return (
+//         <main style={{ padding: 24 }}>
+//             <h1>Lista de Usuários</h1>
+//             <table>
+//                 <thead>
+//                     <tr>
+//                         <th>ID</th>
+//                         <th>Email</th>
+//                         <th>Senha</th>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
+//                     {users.map(user => (
+//                         <tr key={user.email}>
+//                             <td>{user.email}</td>
+//                             <td>{user.loginPassword}</td>
+//                         </tr>
+//                     ))}
+//                 </tbody>
+//             </table>
+//         </main>
+//     );
+// }
+
+// export default App
