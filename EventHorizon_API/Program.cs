@@ -87,6 +87,16 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:7160")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();

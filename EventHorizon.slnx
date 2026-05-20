@@ -1,3 +1,7 @@
 <Solution>
   <Project Path="EventHorizon_API/EventHorizon_API.csproj" />
+  <Project Path="EventHorizon_Client/eventhorizon_client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
